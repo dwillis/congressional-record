@@ -27,6 +27,7 @@ A `CongressionalRecordDocument` contains:
 | `header` | Header | Yes | Metadata about the Congressional Record issue |
 | `doc_title` | string | Yes | Title from metadata |
 | `title` | string | No | Title parsed from content (all-caps heading) |
+| `document_type` | string | No | Type of special report (e.g., "foreign_travel_expenditure"), null for regular proceedings |
 | `content` | ContentItem[] | Yes | List of content items (speeches, notes, etc.) |
 | `related_bills` | RelatedBill[] | No | Bills referenced in this document |
 | `related_laws` | RelatedLaw[] | No | Laws referenced in this document |
@@ -130,6 +131,17 @@ Export to standard JSON Schema format for use with other tools:
 uv run python dev_scripts/generate_json_schema.py > schema.json
 ```
 
+### Document Types
+
+The optional `document_type` field identifies special report types:
+
+| Value | Description |
+|-------|-------------|
+| `null` or omitted | Regular Congressional proceedings/speeches |
+| `"foreign_travel_expenditure"` | Foreign travel expenditure reports |
+
+Additional document types may be added in the future as needed.
+
 ## Example Document
 
 ```json
@@ -148,6 +160,7 @@ uv run python dev_scripts/generate_json_schema.py > schema.json
   },
   "doc_title": "SUBMISSION OF CONCURRENT AND SENATE RESOLUTIONS",
   "title": "SUBMISSION OF CONCURRENT AND SENATE RESOLUTIONS",
+  "document_type": null,
   "content": [
     {
       "kind": "Unknown",

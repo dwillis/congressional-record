@@ -112,6 +112,14 @@ class CongressionalRecordDocument(BaseModel):
     title: Optional[str] = Field(
         None, description="Title parsed from the document content (all-caps heading)"
     )
+    document_type: Optional[str] = Field(
+        None,
+        description=(
+            "Type of document when it's a special report rather than regular proceedings. "
+            "Examples: 'foreign_travel_expenditure' for foreign travel expenditure reports. "
+            "None for regular proceedings/speeches."
+        ),
+    )
     content: List[ContentItem] = Field(
         ..., description="List of content items (speeches, notes, etc.)"
     )

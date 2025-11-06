@@ -28,6 +28,7 @@ dependencies = [
     'PyYAML',
     'unicodecsv',
     'future',
+    'pydantic>=2.0',
     ]
 keywords = ["unitedstates", "open government data", "congress", "legislative data"]
 
