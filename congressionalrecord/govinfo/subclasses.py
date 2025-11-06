@@ -13,6 +13,42 @@ class crItem(object):
             if re.match(pat, line):
                 return True
 
+    def extract_constitutional_authority(self, text):
+        """Extract Article, Section, and Clause from constitutional authority text."""
+        # Initialize fields
+        article = None
+        section = None
+        clause = None
+        bill_number = None
+
+        # Extract bill number (e.g., H.R. 3456, H.J. Res. 62)
+        bill_match = re.search(r"(H\.(R\.|J\. Res\.|Con\. Res\.|Res\.)|S\.) \d+", text)
+        if bill_match:
+            bill_number = bill_match.group(0).strip()
+
+        # Extract Article (Roman numerals)
+        article_match = re.search(
+            r"Article ([IVX]+|[0-9]+)", text, re.IGNORECASE
+        )
+        if article_match:
+            article = article_match.group(1)
+
+        # Extract Section
+        section_match = re.search(
+            r"Section (\d+)", text, re.IGNORECASE
+        )
+        if section_match:
+            section = section_match.group(1)
+
+        # Extract Clause
+        clause_match = re.search(
+            r"Clause (\d+(?:\s+and\s+(?:Clause\s+)?\d+)?)", text, re.IGNORECASE
+        )
+        if clause_match:
+            clause = clause_match.group(1).replace("Clause ", "")
+
+        return article, section, clause, bill_number
+
     def item_builder(self):
         parent = self.parent
         if parent.lines_remaining == False:
@@ -61,6 +97,18 @@ class crItem(object):
         # The original text was split on newline, so ...
         item_text = "\n".join(content)
         self.item["text"] = item_text
+
+        # Extract constitutional authority information if applicable
+        if self.item["kind"] == "constitutional_authority":
+            article, section, clause, bill_number = self.extract_constitutional_authority(item_text)
+            if article:
+                self.item["constitutional_authority_article"] = article
+            if section:
+                self.item["constitutional_authority_section"] = section
+            if clause:
+                self.item["constitutional_authority_clause"] = clause
+            if bill_number:
+                self.item["bill_number"] = bill_number
 
     def __init__(self, parent):
         self.item = {"kind": "Unknown", "speaker": "Unknown", "text": None, "turn": -1}

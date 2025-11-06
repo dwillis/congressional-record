@@ -61,6 +61,10 @@ Represents a single piece of content (speech, procedural note, etc.):
 | `text` | string | Yes | Full text content |
 | `turn` | integer | Yes | Turn number (for speeches) or -1 |
 | `itemno` | integer | Yes | Sequential item number in document |
+| `bill_number` | string | No | Bill/resolution number for constitutional authority statements (e.g., "H.R. 3456") |
+| `constitutional_authority_article` | string | No | Article of Constitution cited (e.g., "I", "V") |
+| `constitutional_authority_section` | string | No | Section of Constitution cited (e.g., "8") |
+| `constitutional_authority_clause` | string | No | Clause(s) of Constitution cited (e.g., "3", "1 and 18") |
 
 #### Content Item Types (`kind`)
 
@@ -73,6 +77,7 @@ Represents a single piece of content (speech, procedural note, etc.):
 - `metacharacters`: Internal markers (timestamps, page breaks)
 - `empty_line`: Empty lines (usually skipped)
 - `title`: Section title
+- `constitutional_authority`: Constitutional authority statement for legislation (House only)
 - `Unknown`: Could not be classified
 
 ### RelatedBill
@@ -89,6 +94,32 @@ Reference to a bill mentioned in the Congressional Record:
 ### Related Laws, USC, and Statutes
 
 These models are placeholders for future enhancement based on actual XML structure in the source data.
+
+### Constitutional Authority Statements (House)
+
+Constitutional authority statements are special content items found in House proceedings where members cite the constitutional basis for proposed legislation. These are identified by `kind: "constitutional_authority"` and include:
+
+- The sponsoring member's name in the `speaker` field
+- Bill or resolution number in `bill_number`
+- Article, Section, and/or Clause of the Constitution cited
+
+**Example:**
+```json
+{
+  "kind": "constitutional_authority",
+  "speaker": "Mr. SMITH of Texas",
+  "text": "  By Mr. SMITH of Texas:\n  H.R. 3456.\n  Congress has the power to enact this legislation pursuant\nto the following:\n  Article I, Section 8, Clause 3 of the United States\nConstitution\n",
+  "bill_number": "H.R. 3456",
+  "constitutional_authority_article": "I",
+  "constitutional_authority_section": "8",
+  "constitutional_authority_clause": "3",
+  "turn": -1,
+  "speaker_bioguide": null,
+  "itemno": 2
+}
+```
+
+**Note:** Not all constitutional authority statements include all three components (Article, Section, Clause). For example, statements citing Article V (constitutional amendments) typically only cite the article.
 
 ## Usage Examples
 

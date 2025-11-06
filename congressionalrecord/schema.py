@@ -75,7 +75,8 @@ class ContentItem(BaseModel):
         ...,
         description=(
             "Type of content item: 'speech', 'recorder', 'clerk', 'linebreak', "
-            "'excerpt', 'rollcall', 'metacharacters', 'empty_line', 'title', or 'Unknown'"
+            "'excerpt', 'rollcall', 'metacharacters', 'empty_line', 'title', "
+            "'constitutional_authority', or 'Unknown'"
         ),
     )
     speaker: str = Field(
@@ -95,6 +96,22 @@ class ContentItem(BaseModel):
     )
     itemno: int = Field(
         ..., description="Sequential item number within this document"
+    )
+    bill_number: Optional[str] = Field(
+        None,
+        description="Bill or resolution number (e.g., 'H.R. 3456') for constitutional authority statements",
+    )
+    constitutional_authority_article: Optional[str] = Field(
+        None,
+        description="Article of the Constitution cited (e.g., 'I', 'V') for constitutional authority statements",
+    )
+    constitutional_authority_section: Optional[str] = Field(
+        None,
+        description="Section of the Constitution cited (e.g., '8') for constitutional authority statements",
+    )
+    constitutional_authority_clause: Optional[str] = Field(
+        None,
+        description="Clause of the Constitution cited (e.g., '3', '1 and 18') for constitutional authority statements",
     )
 
 

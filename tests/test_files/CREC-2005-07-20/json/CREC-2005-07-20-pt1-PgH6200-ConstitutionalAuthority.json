@@ -1,0 +1,79 @@
+{
+  "header": {
+    "vol": "151",
+    "num": "99",
+    "wkday": "Wednesday",
+    "month": "July",
+    "day": "20",
+    "year": "2005",
+    "chamber": "House",
+    "pages": "H6200",
+    "extension": false
+  },
+  "content": [
+    {
+      "kind": "metacharacters",
+      "speaker": "None",
+      "text": "[[Page H6200]]\n",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "itemno": 0
+    },
+    {
+      "kind": "title",
+      "speaker": "None",
+      "text": "                   CONSTITUTIONAL AUTHORITY STATEMENT\n\n  Pursuant to clause 7 of rule XII of the Rules of the House of\nRepresentatives, the following statements are submitted regarding the\nspecific powers granted to Congress in the Constitution to enact the\naccompanying bill or joint resolution.\n",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "itemno": 1
+    },
+    {
+      "kind": "constitutional_authority",
+      "speaker": "Mr. SMITH of Texas",
+      "text": "  By Mr. SMITH of Texas:\n  H.R. 3456.\n  Congress has the power to enact this legislation pursuant\nto the following:\n  Article I, Section 8, Clause 3 of the United States\nConstitution",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "constitutional_authority_article": "I",
+      "constitutional_authority_section": "8",
+      "constitutional_authority_clause": "3",
+      "bill_number": "H.R. 3456",
+      "itemno": 2
+    },
+    {
+      "kind": "constitutional_authority",
+      "speaker": "Mrs. JOHNSON of Connecticut",
+      "text": "  By Mrs. JOHNSON of Connecticut:\n  H.R. 3457.\n  Congress has the power to enact this legislation pursuant\nto the following:\n  Article I, Section 8, Clause 1 and Clause 18 of the\nUnited States Constitution",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "constitutional_authority_article": "I",
+      "constitutional_authority_section": "8",
+      "constitutional_authority_clause": "1 and 18",
+      "bill_number": "H.R. 3457",
+      "itemno": 3
+    },
+    {
+      "kind": "constitutional_authority",
+      "speaker": "Mr. JONES",
+      "text": "  By Mr. JONES:\n  H.R. 3458.\n  Congress has the power to enact this legislation pursuant\nto the following:\n  Article I, Section 8",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "constitutional_authority_article": "I",
+      "constitutional_authority_section": "8",
+      "bill_number": "H.R. 3458",
+      "itemno": 4
+    },
+    {
+      "kind": "constitutional_authority",
+      "speaker": "Ms. WATERS",
+      "text": "  By Ms. WATERS:\n  H.J. Res. 62.\n  Congress has the power to enact this legislation pursuant\nto the following:\n  Article V of the United States Constitution\n\n",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "constitutional_authority_article": "V",
+      "bill_number": "H.J. Res. 62",
+      "itemno": 5
+    }
+  ],
+  "id": "CREC-2005-07-20-pt1-PgH6200-ConstitutionalAuthority",
+  "doc_title": "CONSTITUTIONAL AUTHORITY STATEMENT",
+  "title": null
+}

@@ -49276,4 +49276,44 @@ understand this change will not affect the outcome of the vote.</result>
   <granuleDate>2005-07-20</granuleDate>
 </extension>
 </relatedItem>
+<relatedItem type="constituent" ID="id-CREC-2005-07-20-pt1-PgH6200-ConstitutionalAuthority" xlink:href="http://www.gpo.gov/fdsys/granule/CREC-2005-07-20/CREC-2005-07-20-pt1-PgH6200-ConstitutionalAuthority/mods.xml">
+ <titleInfo>
+  <title>CONSTITUTIONAL AUTHORITY STATEMENT</title>
+  <partName>House</partName>
+</titleInfo>
+ <relatedItem type="otherFormat" xlink:href="http://www.gpo.gov/fdsys/pkg/CREC-2005-07-20/html/CREC-2005-07-20-pt1-PgH6200-ConstitutionalAuthority.htm">
+  <identifier type="FDsys Unique ID">D09002ee18c71c999</identifier>
+</relatedItem>
+ <relatedItem type="otherFormat" xlink:href="http://www.gpo.gov/fdsys/pkg/CREC-2005-07-20/pdf/CREC-2005-07-20-pt1-PgH6200-ConstitutionalAuthority.pdf">
+  <identifier type="FDsys Unique ID">D09002ee18c71c99a</identifier>
+</relatedItem>
+ <identifier type="congressional record citation">151 Cong. Rec. H6200</identifier>
+ <identifier type="uri">http://www.gpo.gov/fdsys/granule/CREC-2005-07-20/CREC-2005-07-20-pt1-PgH6200-ConstitutionalAuthority</identifier>
+ <identifier type="former granule identifier">CR20JY05-999</identifier>
+ <location>
+  <url access="object in context" displayLabel="Content Detail">http://www.gpo.gov/fdsys/granule/CREC-2005-07-20/CREC-2005-07-20-pt1-PgH6200-ConstitutionalAuthority/content-detail.html</url>
+  <url access="raw object" displayLabel="PDF rendition">http://www.gpo.gov/fdsys/pkg/CREC-2005-07-20/pdf/CREC-2005-07-20-pt1-PgH6200-ConstitutionalAuthority.pdf</url>
+  <url access="raw object" displayLabel="HTML rendition">http://www.gpo.gov/fdsys/pkg/CREC-2005-07-20/html/CREC-2005-07-20-pt1-PgH6200-ConstitutionalAuthority.htm</url>
+</location>
+ <physicalDescription>
+  <extent>1 p.</extent>
+</physicalDescription>
+ <part type="article">
+  <extent unit="pages">
+   <start>H6200</start>
+   <end>H6200</end>
+</extent>
+</part>
+ <identifier type="preferred citation">151 Cong. Rec. H6200</identifier>
+ <extension>
+  <searchTitle>CONSTITUTIONAL AUTHORITY STATEMENT; Congressional Record Vol. 151, No. 99</searchTitle>
+  <granuleClass>HOUSE</granuleClass>
+  <accessId>CREC-2005-07-20-pt1-PgH6200-ConstitutionalAuthority</accessId>
+  <subGranuleClass>ALLOTHER</subGranuleClass>
+  <pagePrefix>H</pagePrefix>
+  <bookNumber>1</bookNumber>
+  <chamber>HOUSE</chamber>
+  <granuleDate>2005-07-20</granuleDate>
+</extension>
+</relatedItem>
 </mods>
