@@ -369,6 +369,28 @@ class ParseCRFile(object):
         else:
             return False
 
+    def detect_document_type(self, title=None, doc_title=None):
+        """
+        Detect special document types based on title patterns.
+        Returns a document type string or None for regular proceedings.
+        """
+        # Combine title and doc_title for checking
+        text_to_check = []
+        if title:
+            text_to_check.append(title.lower())
+        if doc_title:
+            text_to_check.append(doc_title.lower())
+
+        combined_text = " ".join(text_to_check)
+
+        # Check for foreign travel expenditure reports
+        if "foreign travel" in combined_text and "expenditure" in combined_text:
+            return "foreign_travel_expenditure"
+
+        # Future document types can be added here
+
+        return None
+
     def write_page(self):
         turn = 0
         itemno = 0
@@ -378,6 +400,14 @@ class ParseCRFile(object):
             self.crdoc["title"] = title
         else:
             self.crdoc["title"] = None
+
+        # Detect document type
+        document_type = self.detect_document_type(title=title, doc_title=self.doc_title)
+        if document_type:
+            self.crdoc["document_type"] = document_type
+        else:
+            self.crdoc["document_type"] = None
+
         while self.lines_remaining:
             # while not re.match(self.re_allcaps,self.cur_line):
             try:
