@@ -1,1 +1,42 @@
-{"title": "PRIVATE BILLS AND RESOLUTIONS", "content": [{"text": "  Under clause 3 of rule XII,\n\n       Mr. LYNCH introduced a bill (H.R. 3371) to provide for the \n     liquidation or reliquidation of certain entries; which was \n     referred to the Committee on Ways and Means.\n", "kind": "Unknown", "speaker": "Unknown", "itemno": 0, "turn": -1}, {"kind": "linebreak", "speaker_bioguide": null, "text": "                          ____________________\n\n\n", "turn": -1, "speaker": "None", "itemno": 1}], "header": {"chamber": "House", "num": "99", "extension": false, "year": "2005", "vol": "151", "pages": "H6205", "wkday": "Wednesday", "day": "20", "month": "July"}, "related_bills": [{"type": "HR", "context": "OTHER", "congress": "109", "number": "3371"}], "doc_title": "PRIVATE BILLS AND RESOLUTIONS", "id": "CREC-2005-07-20-pt1-PgH6205"}
+{
+  "header": {
+    "vol": "151",
+    "num": "99",
+    "wkday": "Wednesday",
+    "month": "July",
+    "day": "20",
+    "year": "2005",
+    "chamber": "House",
+    "pages": "H6205",
+    "extension": false
+  },
+  "content": [
+    {
+      "kind": "Unknown",
+      "speaker": "Unknown",
+      "text": "  Under clause 3 of rule XII,\n\n       Mr. LYNCH introduced a bill (H.R. 3371) to provide for the \n     liquidation or reliquidation of certain entries; which was \n     referred to the Committee on Ways and Means.\n",
+      "turn": -1,
+      "itemno": 0
+    },
+    {
+      "kind": "linebreak",
+      "speaker": "None",
+      "text": "                          ____________________\n\n\n",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "itemno": 1
+    }
+  ],
+  "related_bills": [
+    {
+      "congress": "109",
+      "context": "OTHER",
+      "number": "3371",
+      "type": "HR"
+    }
+  ],
+  "id": "CREC-2005-07-20-pt1-PgH6205",
+  "doc_title": "PRIVATE BILLS AND RESOLUTIONS",
+  "title": "PRIVATE BILLS AND RESOLUTIONS",
+  "document_type": null
+}

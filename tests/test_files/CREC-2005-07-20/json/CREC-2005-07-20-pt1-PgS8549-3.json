@@ -1,1 +1,34 @@
-{"content": [{"text": "  As in executive session the Presiding Officer laid before the Senate \nmessages from the President of the United States submitting sundry \nnominations which were referred to the appropriate committees.\n  (The nominations received today are printed at the end of the Senate \nproceedings.)\n", "kind": "Unknown", "speaker": "Unknown", "itemno": 0, "turn": -1}, {"kind": "linebreak", "speaker_bioguide": null, "text": "                          ____________________\n\n\n", "turn": -1, "speaker": "None", "itemno": 1}], "header": {"chamber": "Senate", "num": "99", "extension": false, "year": "2005", "vol": "151", "pages": "S8549", "wkday": "Wednesday", "day": "20", "month": "July"}, "doc_title": "EXECUTIVE MESSAGES REFERRED", "id": "CREC-2005-07-20-pt1-PgS8549-3", "title": "EXECUTIVE MESSAGES REFERRED"}
+{
+  "header": {
+    "vol": "151",
+    "num": "99",
+    "wkday": "Wednesday",
+    "month": "July",
+    "day": "20",
+    "year": "2005",
+    "chamber": "Senate",
+    "pages": "S8549",
+    "extension": false
+  },
+  "content": [
+    {
+      "kind": "Unknown",
+      "speaker": "Unknown",
+      "text": "  As in executive session the Presiding Officer laid before the Senate \nmessages from the President of the United States submitting sundry \nnominations which were referred to the appropriate committees.\n  (The nominations received today are printed at the end of the Senate \nproceedings.)\n",
+      "turn": -1,
+      "itemno": 0
+    },
+    {
+      "kind": "linebreak",
+      "speaker": "None",
+      "text": "                          ____________________\n\n\n",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "itemno": 1
+    }
+  ],
+  "id": "CREC-2005-07-20-pt1-PgS8549-3",
+  "doc_title": "EXECUTIVE MESSAGES REFERRED",
+  "title": "EXECUTIVE MESSAGES REFERRED",
+  "document_type": null
+}

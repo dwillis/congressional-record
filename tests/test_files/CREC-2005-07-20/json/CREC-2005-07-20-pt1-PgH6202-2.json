@@ -1,1 +1,42 @@
-{"title": "ENROLLED JOINT RESOLUTION SIGNED", "content": [{"text": "  Mr. Trandahl, Clerk of the House, reported and found truly enrolled a \nJoint Resolution of the House of the following title, which was \nthereupon signed by the Speaker:\n\n       H.J. Res. 52. Joint resolution approving the renewal of \n     import restrictions contained in the Burmese Freedom and \n     Democracy Act of 2003.\n", "kind": "Unknown", "speaker": "Unknown", "itemno": 0, "turn": -1}, {"kind": "linebreak", "speaker_bioguide": null, "text": "                          ____________________\n\n\n", "turn": -1, "speaker": "None", "itemno": 1}], "header": {"chamber": "House", "num": "99", "extension": false, "year": "2005", "vol": "151", "pages": "H6202", "wkday": "Wednesday", "day": "20", "month": "July"}, "related_bills": [{"type": "HJRES", "context": "OTHER", "congress": "109", "number": "52"}], "doc_title": "ENROLLED JOINT RESOLUTION SIGNED", "id": "CREC-2005-07-20-pt1-PgH6202-2"}
+{
+  "header": {
+    "vol": "151",
+    "num": "99",
+    "wkday": "Wednesday",
+    "month": "July",
+    "day": "20",
+    "year": "2005",
+    "chamber": "House",
+    "pages": "H6202",
+    "extension": false
+  },
+  "content": [
+    {
+      "kind": "Unknown",
+      "speaker": "Unknown",
+      "text": "  Mr. Trandahl, Clerk of the House, reported and found truly enrolled a \nJoint Resolution of the House of the following title, which was \nthereupon signed by the Speaker:\n\n       H.J. Res. 52. Joint resolution approving the renewal of \n     import restrictions contained in the Burmese Freedom and \n     Democracy Act of 2003.\n",
+      "turn": -1,
+      "itemno": 0
+    },
+    {
+      "kind": "linebreak",
+      "speaker": "None",
+      "text": "                          ____________________\n\n\n",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "itemno": 1
+    }
+  ],
+  "related_bills": [
+    {
+      "congress": "109",
+      "context": "OTHER",
+      "number": "52",
+      "type": "HJRES"
+    }
+  ],
+  "id": "CREC-2005-07-20-pt1-PgH6202-2",
+  "doc_title": "ENROLLED JOINT RESOLUTION SIGNED",
+  "title": "ENROLLED JOINT RESOLUTION SIGNED",
+  "document_type": null
+}

@@ -1,1 +1,35 @@
-{"content": [{"kind": "speech", "speaker_bioguide": null, "text": "  The PRESIDING OFFICER. Morning business is now closed.\n", "turn": 0, "speaker": "The PRESIDING OFFICER", "itemno": 0}, {"kind": "linebreak", "speaker_bioguide": null, "text": "                          ____________________\n\n\n", "turn": -1, "speaker": "None", "itemno": 1}], "header": {"chamber": "Senate", "num": "99", "extension": false, "year": "2005", "vol": "151", "pages": "S8510", "wkday": "Wednesday", "day": "20", "month": "July"}, "doc_title": "CONCLUSION OF MORNING BUSINESS", "id": "CREC-2005-07-20-pt1-PgS8510", "title": "CONCLUSION OF MORNING BUSINESS"}
+{
+  "header": {
+    "vol": "151",
+    "num": "99",
+    "wkday": "Wednesday",
+    "month": "July",
+    "day": "20",
+    "year": "2005",
+    "chamber": "Senate",
+    "pages": "S8510",
+    "extension": false
+  },
+  "content": [
+    {
+      "kind": "speech",
+      "speaker": "The PRESIDING OFFICER",
+      "text": "  The PRESIDING OFFICER. Morning business is now closed.\n",
+      "turn": 0,
+      "speaker_bioguide": null,
+      "itemno": 0
+    },
+    {
+      "kind": "linebreak",
+      "speaker": "None",
+      "text": "                          ____________________\n\n\n",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "itemno": 1
+    }
+  ],
+  "id": "CREC-2005-07-20-pt1-PgS8510",
+  "doc_title": "CONCLUSION OF MORNING BUSINESS",
+  "title": "CONCLUSION OF MORNING BUSINESS",
+  "document_type": null
+}

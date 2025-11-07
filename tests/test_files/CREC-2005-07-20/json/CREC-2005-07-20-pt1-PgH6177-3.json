@@ -1,1 +1,51 @@
-{"content": [{"kind": "speech", "speaker_bioguide": "P000592", "text": "  Mr. POE. Madam Speaker, I ask unanimous consent to take my special \norder at this time.\n\n", "turn": 0, "speaker": "Mr. POE", "itemno": 0}, {"kind": "speech", "speaker_bioguide": null, "text": "  The SPEAKER pro tempore. Is there objection to the request of the \ngentleman from Texas?", "turn": 1, "speaker": "The SPEAKER pro tempore", "itemno": 1}, {"kind": "recorder", "speaker_bioguide": null, "text": "  There was no objection.\n", "turn": -1, "speaker": "The RECORDER", "itemno": 2}, {"kind": "linebreak", "speaker_bioguide": null, "text": "                          ____________________\n\n\n", "turn": -1, "speaker": "None", "itemno": 3}], "header": {"chamber": "House", "num": "99", "extension": false, "year": "2005", "vol": "151", "pages": "H6177-H6178", "wkday": "Wednesday", "day": "20", "month": "July"}, "doc_title": "ORDER OF BUSINESS", "id": "CREC-2005-07-20-pt1-PgH6177-3", "title": "ORDER OF BUSINESS"}
+{
+  "header": {
+    "vol": "151",
+    "num": "99",
+    "wkday": "Wednesday",
+    "month": "July",
+    "day": "20",
+    "year": "2005",
+    "chamber": "House",
+    "pages": "H6177-H6178",
+    "extension": false
+  },
+  "content": [
+    {
+      "kind": "speech",
+      "speaker": "Mr. POE",
+      "text": "  Mr. POE. Madam Speaker, I ask unanimous consent to take my special \norder at this time.\n\n",
+      "turn": 0,
+      "speaker_bioguide": "P000592",
+      "itemno": 0
+    },
+    {
+      "kind": "speech",
+      "speaker": "The SPEAKER pro tempore",
+      "text": "  The SPEAKER pro tempore. Is there objection to the request of the \ngentleman from Texas?",
+      "turn": 1,
+      "speaker_bioguide": null,
+      "itemno": 1
+    },
+    {
+      "kind": "recorder",
+      "speaker": "The RECORDER",
+      "text": "  There was no objection.\n",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "itemno": 2
+    },
+    {
+      "kind": "linebreak",
+      "speaker": "None",
+      "text": "                          ____________________\n\n\n",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "itemno": 3
+    }
+  ],
+  "id": "CREC-2005-07-20-pt1-PgH6177-3",
+  "doc_title": "ORDER OF BUSINESS",
+  "title": "ORDER OF BUSINESS",
+  "document_type": null
+}

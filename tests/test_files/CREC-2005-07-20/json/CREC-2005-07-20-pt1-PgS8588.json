@@ -1,1 +1,35 @@
-{"content": [{"kind": "speech", "speaker_bioguide": null, "text": "  The PRESIDING OFFICER. The Senate stands adjourned until 9:30 a.m. \ntomorrow.\n  Thereupon, the Senate, at 7:15 p.m., adjourned until Thursday, July \n21, 2005, at 9:30 a.m. \n", "turn": 0, "speaker": "The PRESIDING OFFICER", "itemno": 0}, {"kind": "linebreak", "speaker_bioguide": null, "text": "                          ____________________\n\n\n", "turn": -1, "speaker": "None", "itemno": 1}], "header": {"chamber": "Senate", "num": "99", "extension": false, "year": "2005", "vol": "151", "pages": "S8588", "wkday": "Wednesday", "day": "20", "month": "July"}, "doc_title": "ADJOURNMENT UNTIL 9:30 A.M. TOMORROW", "id": "CREC-2005-07-20-pt1-PgS8588", "title": "ADJOURNMENT UNTIL 9:30 A.M. TOMORROW"}
+{
+  "header": {
+    "vol": "151",
+    "num": "99",
+    "wkday": "Wednesday",
+    "month": "July",
+    "day": "20",
+    "year": "2005",
+    "chamber": "Senate",
+    "pages": "S8588",
+    "extension": false
+  },
+  "content": [
+    {
+      "kind": "speech",
+      "speaker": "The PRESIDING OFFICER",
+      "text": "  The PRESIDING OFFICER. The Senate stands adjourned until 9:30 a.m. \ntomorrow.\n  Thereupon, the Senate, at 7:15 p.m., adjourned until Thursday, July \n21, 2005, at 9:30 a.m. \n",
+      "turn": 0,
+      "speaker_bioguide": null,
+      "itemno": 0
+    },
+    {
+      "kind": "linebreak",
+      "speaker": "None",
+      "text": "                          ____________________\n\n\n",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "itemno": 1
+    }
+  ],
+  "id": "CREC-2005-07-20-pt1-PgS8588",
+  "doc_title": "ADJOURNMENT UNTIL 9:30 A.M. TOMORROW",
+  "title": "ADJOURNMENT UNTIL 9:30 A.M. TOMORROW",
+  "document_type": null
+}

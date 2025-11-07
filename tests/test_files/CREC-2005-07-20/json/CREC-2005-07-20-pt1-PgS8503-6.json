@@ -1,1 +1,35 @@
-{"content": [{"kind": "speech", "speaker_bioguide": null, "text": "  The PRESIDENT pro tempore. The majority leader is recognized.\n", "turn": 0, "speaker": "The PRESIDENT pro tempore", "itemno": 0}, {"kind": "linebreak", "speaker_bioguide": null, "text": "                          ____________________\n\n\n", "turn": -1, "speaker": "None", "itemno": 1}], "header": {"chamber": "Senate", "num": "99", "extension": false, "year": "2005", "vol": "151", "pages": "S8503", "wkday": "Wednesday", "day": "20", "month": "July"}, "doc_title": "RECOGNITION OF THE MAJORITY LEADER", "id": "CREC-2005-07-20-pt1-PgS8503-6", "title": "RECOGNITION OF THE MAJORITY LEADER"}
+{
+  "header": {
+    "vol": "151",
+    "num": "99",
+    "wkday": "Wednesday",
+    "month": "July",
+    "day": "20",
+    "year": "2005",
+    "chamber": "Senate",
+    "pages": "S8503",
+    "extension": false
+  },
+  "content": [
+    {
+      "kind": "speech",
+      "speaker": "The PRESIDENT pro tempore",
+      "text": "  The PRESIDENT pro tempore. The majority leader is recognized.\n",
+      "turn": 0,
+      "speaker_bioguide": null,
+      "itemno": 0
+    },
+    {
+      "kind": "linebreak",
+      "speaker": "None",
+      "text": "                          ____________________\n\n\n",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "itemno": 1
+    }
+  ],
+  "id": "CREC-2005-07-20-pt1-PgS8503-6",
+  "doc_title": "RECOGNITION OF THE MAJORITY LEADER",
+  "title": "RECOGNITION OF THE MAJORITY LEADER",
+  "document_type": null
+}

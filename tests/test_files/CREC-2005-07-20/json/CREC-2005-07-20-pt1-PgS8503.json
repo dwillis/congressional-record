@@ -1,1 +1,35 @@
-{"content": [{"kind": "metacharacters", "speaker_bioguide": null, "text": "[[Page S8503]]\n\n-----------------------------------------------------------------------\n\n                                 Senate\n\n  The Senate met at 9:30 a.m. and was called to order by the President \npro tempore (Mr. Stevens).", "turn": -1, "speaker": "None", "itemno": 0}, {"kind": "linebreak", "speaker_bioguide": null, "text": "                                 ______\n\n\n", "turn": -1, "speaker": "None", "itemno": 1}], "header": {"chamber": "Senate", "num": "99", "extension": false, "year": "2005", "vol": "151", "pages": "S8503", "wkday": "Wednesday", "day": "20", "month": "July"}, "doc_title": "Senate", "id": "CREC-2005-07-20-pt1-PgS8503", "title": null}
+{
+  "header": {
+    "vol": "151",
+    "num": "99",
+    "wkday": "Wednesday",
+    "month": "July",
+    "day": "20",
+    "year": "2005",
+    "chamber": "Senate",
+    "pages": "S8503",
+    "extension": false
+  },
+  "content": [
+    {
+      "kind": "metacharacters",
+      "speaker": "None",
+      "text": "[[Page S8503]]\n\n-----------------------------------------------------------------------\n\n                                 Senate\n\n  The Senate met at 9:30 a.m. and was called to order by the President \npro tempore (Mr. Stevens).",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "itemno": 0
+    },
+    {
+      "kind": "linebreak",
+      "speaker": "None",
+      "text": "                                 ______\n\n\n",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "itemno": 1
+    }
+  ],
+  "id": "CREC-2005-07-20-pt1-PgS8503",
+  "doc_title": "Senate",
+  "title": null,
+  "document_type": null
+}

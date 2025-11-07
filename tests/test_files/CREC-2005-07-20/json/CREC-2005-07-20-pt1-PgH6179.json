@@ -1,1 +1,35 @@
-{"content": [{"kind": "speech", "speaker_bioguide": null, "text": "  The SPEAKER pro tempore (Mr. Poe). Under a previous order of the \nHouse, the gentleman from Idaho (Mr. Otter) is recognized for 5 \nminutes.\n  (Mr. OTTER addressed the House. His remarks will appear hereafter in \nthe Extensions of Remarks.)\n", "turn": 0, "speaker": "The SPEAKER pro tempore (Mr. Poe)", "itemno": 0}, {"kind": "linebreak", "speaker_bioguide": null, "text": "                          ____________________\n\n\n", "turn": -1, "speaker": "None", "itemno": 1}], "header": {"chamber": "House", "num": "99", "extension": false, "year": "2005", "vol": "151", "pages": "H6179", "wkday": "Wednesday", "day": "20", "month": "July"}, "doc_title": "None", "id": "CREC-2005-07-20-pt1-PgH6179", "title": null}
+{
+  "header": {
+    "vol": "151",
+    "num": "99",
+    "wkday": "Wednesday",
+    "month": "July",
+    "day": "20",
+    "year": "2005",
+    "chamber": "House",
+    "pages": "H6179",
+    "extension": false
+  },
+  "content": [
+    {
+      "kind": "speech",
+      "speaker": "The SPEAKER pro tempore (Mr. Poe)",
+      "text": "  The SPEAKER pro tempore (Mr. Poe). Under a previous order of the \nHouse, the gentleman from Idaho (Mr. Otter) is recognized for 5 \nminutes.\n  (Mr. OTTER addressed the House. His remarks will appear hereafter in \nthe Extensions of Remarks.)\n",
+      "turn": 0,
+      "speaker_bioguide": null,
+      "itemno": 0
+    },
+    {
+      "kind": "linebreak",
+      "speaker": "None",
+      "text": "                          ____________________\n\n\n",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "itemno": 1
+    }
+  ],
+  "id": "CREC-2005-07-20-pt1-PgH6179",
+  "doc_title": "None",
+  "title": null,
+  "document_type": null
+}

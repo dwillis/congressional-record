@@ -1,1 +1,34 @@
-{"content": [{"text": "  Messages from the President of the United States were communicated to \nthe Senate by Ms. Evans, one of his secretaries.\n", "kind": "Unknown", "speaker": "Unknown", "itemno": 0, "turn": -1}, {"kind": "linebreak", "speaker_bioguide": null, "text": "                          ____________________\n\n\n", "turn": -1, "speaker": "None", "itemno": 1}], "header": {"chamber": "Senate", "num": "99", "extension": false, "year": "2005", "vol": "151", "pages": "S8549", "wkday": "Wednesday", "day": "20", "month": "July"}, "doc_title": "MESSAGES FROM THE PRESIDENT", "id": "CREC-2005-07-20-pt1-PgS8549-2", "title": "MESSAGES FROM THE PRESIDENT"}
+{
+  "header": {
+    "vol": "151",
+    "num": "99",
+    "wkday": "Wednesday",
+    "month": "July",
+    "day": "20",
+    "year": "2005",
+    "chamber": "Senate",
+    "pages": "S8549",
+    "extension": false
+  },
+  "content": [
+    {
+      "kind": "Unknown",
+      "speaker": "Unknown",
+      "text": "  Messages from the President of the United States were communicated to \nthe Senate by Ms. Evans, one of his secretaries.\n",
+      "turn": -1,
+      "itemno": 0
+    },
+    {
+      "kind": "linebreak",
+      "speaker": "None",
+      "text": "                          ____________________\n\n\n",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "itemno": 1
+    }
+  ],
+  "id": "CREC-2005-07-20-pt1-PgS8549-2",
+  "doc_title": "MESSAGES FROM THE PRESIDENT",
+  "title": "MESSAGES FROM THE PRESIDENT",
+  "document_type": null
+}

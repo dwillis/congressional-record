@@ -1,1 +1,34 @@
-{"title": "DELETIONS OF SPONSORS FROM PUBLIC BILLS AND RESOLUTIONS", "content": [{"text": "  Under clause 7 of rule XII, sponsors were deleted from public bills \nand resolutions as follows:\n\n       H.R. 3003: Mr. Moran of Kansas.\n\n", "kind": "Unknown", "speaker": "Unknown", "itemno": 0, "turn": -1}], "header": {"chamber": "House", "num": "99", "extension": false, "year": "2005", "vol": "151", "pages": "H6206", "wkday": "Wednesday", "day": "20", "month": "July"}, "related_bills": [{"type": "HR", "context": "OTHER", "congress": "109", "number": "3003"}], "doc_title": "DELETIONS OF SPONSORS FROM PUBLIC BILLS AND RESOLUTIONS", "id": "CREC-2005-07-20-pt1-PgH6206"}
+{
+  "header": {
+    "vol": "151",
+    "num": "99",
+    "wkday": "Wednesday",
+    "month": "July",
+    "day": "20",
+    "year": "2005",
+    "chamber": "House",
+    "pages": "H6206",
+    "extension": false
+  },
+  "content": [
+    {
+      "kind": "Unknown",
+      "speaker": "Unknown",
+      "text": "  Under clause 7 of rule XII, sponsors were deleted from public bills \nand resolutions as follows:\n\n       H.R. 3003: Mr. Moran of Kansas.\n\n",
+      "turn": -1,
+      "itemno": 0
+    }
+  ],
+  "related_bills": [
+    {
+      "congress": "109",
+      "context": "OTHER",
+      "number": "3003",
+      "type": "HR"
+    }
+  ],
+  "id": "CREC-2005-07-20-pt1-PgH6206",
+  "doc_title": "DELETIONS OF SPONSORS FROM PUBLIC BILLS AND RESOLUTIONS",
+  "title": "DELETIONS OF SPONSORS FROM PUBLIC BILLS AND RESOLUTIONS",
+  "document_type": null
+}

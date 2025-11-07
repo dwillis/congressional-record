@@ -85,8 +85,8 @@ class testTitleContent(unittest.TestCase):
         rootdir = "tests/test_files/CREC-2005-07-20/json"
         # Patterns that indicate speech rather than titles
         speech_patterns = [
-            (re.compile(r',\s+I\s'), ", I "),  # ", I " pattern common in first-person speech
-            (re.compile(r'^\s*I\s'), "starting with 'I '"),  # Starting with "I "
+            (re.compile(r',\s+I\s+(would|am|have|will|think|believe|want|can|should|must|do|did|was|were|had|could|may|might|rise|yield|ask|urge|thank|support|oppose|offer|move|submit|introduce|commend|applaud|congratulate|object)\b', re.IGNORECASE), ", I [speech verb]"),  # ", I " pattern followed by speech verbs
+            (re.compile(r'^\s*I\s+(would|am|have|will|think|believe|want|can|should|must|do|did|was|were|had|could|may|might|rise|yield|ask|urge|thank|support|oppose|offer|move|submit|introduce|commend|applaud|congratulate|object)\b', re.IGNORECASE), "starting with 'I [speech verb]'"),  # Starting with "I " followed by speech verb
         ]
 
         for apath in os.listdir(rootdir):

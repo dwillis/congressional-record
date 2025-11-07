@@ -1,1 +1,35 @@
-{"content": [{"kind": "speech", "speaker_bioguide": null, "text": "  The SPEAKER pro tempore (Ms. Ros-Lehtinen). Under a previous order of \nthe House, the gentleman from North Carolina (Mr. Jones) is recognized \nfor 5 minutes.\n  (Mr. JONES of North Carolina addressed the House. His remarks will \nappear hereafter in the Extensions of Remarks.)\n", "turn": 0, "speaker": "The SPEAKER pro tempore (Ms. Ros-Lehtinen)", "itemno": 0}, {"kind": "linebreak", "speaker_bioguide": null, "text": "                          ____________________\n\n\n", "turn": -1, "speaker": "None", "itemno": 1}], "header": {"chamber": "House", "num": "99", "extension": false, "year": "2005", "vol": "151", "pages": "H6177", "wkday": "Wednesday", "day": "20", "month": "July"}, "doc_title": "None", "id": "CREC-2005-07-20-pt1-PgH6177-2", "title": null}
+{
+  "header": {
+    "vol": "151",
+    "num": "99",
+    "wkday": "Wednesday",
+    "month": "July",
+    "day": "20",
+    "year": "2005",
+    "chamber": "House",
+    "pages": "H6177",
+    "extension": false
+  },
+  "content": [
+    {
+      "kind": "speech",
+      "speaker": "The SPEAKER pro tempore (Ms. Ros-Lehtinen)",
+      "text": "  The SPEAKER pro tempore (Ms. Ros-Lehtinen). Under a previous order of \nthe House, the gentleman from North Carolina (Mr. Jones) is recognized \nfor 5 minutes.\n  (Mr. JONES of North Carolina addressed the House. His remarks will \nappear hereafter in the Extensions of Remarks.)\n",
+      "turn": 0,
+      "speaker_bioguide": null,
+      "itemno": 0
+    },
+    {
+      "kind": "linebreak",
+      "speaker": "None",
+      "text": "                          ____________________\n\n\n",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "itemno": 1
+    }
+  ],
+  "id": "CREC-2005-07-20-pt1-PgH6177-2",
+  "doc_title": "None",
+  "title": null,
+  "document_type": null
+}
