@@ -105,11 +105,7 @@ class ParseCRFile(object):
         r"^\s+(?P<start>" + r"(Pending:)" + r"|(By M(r|rs|s|iss)[\.]? [a-zA-Z]+))"
     )
     re_clerk = r"^\s+(?P<start>The Clerk (read|designated))"
-<<<<<<< HEAD
     re_allcaps = r"^ \s*(?!([_=]+|-{3,}))(?!I\s)(?!SEC\.\s+\d)(?!\([a-z0-9]\))(?!``)(?P<title>(?!.*,\s*I\s)(?!.*--)(?!.*[A-Z]\.\s+[A-Z].*,\s*$)([A-Z]+[^a-z]+))$"
-=======
-    re_allcaps = r"^ \s*(?!([_=]+|-{3,}|H\.(R\.|J\. Res\.|Con\. Res\.|Res\.)|S\.))(?P<title>([A-Z]+[^a-z]+))$"
->>>>>>> claude/parse-constitutional-authority-011CUrf4ZxY3wT8ikk9N2nXF
     re_linebreak = r"\s+([_=]+|-{5,})(NOTE|END NOTE)?([_=]+|-{5,})*\s*"
     re_excerpt = r"\s+(_{3,4})"
     re_newpage = r"\s*\[\[Page \w+\]\]"
