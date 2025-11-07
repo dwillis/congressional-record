@@ -41,6 +41,8 @@ class ParseCRFile(object):
         + r" through the Government (Publishing|Printing) Office \[www.gpo.gov\]$"
     )
     re_rollcall = r"\[Roll(call)?( Vote)? No. \d+.*\]"
+    re_constitutional_authority = r"^\s+By (?P<name>M(r|s|rs|iss)\. [A-Z]+.*?):"
+    re_bill_number = r"^\s+(H\.(R\.|J\. Res\.|Con\. Res\.|Res\.)|S\.) \d+"
     re_recorderstart = (
         r"^\s+(?P<start>"
         + r"(The (assistant )?legislative clerk read as follows)"
@@ -103,7 +105,11 @@ class ParseCRFile(object):
         r"^\s+(?P<start>" + r"(Pending:)" + r"|(By M(r|rs|s|iss)[\.]? [a-zA-Z]+))"
     )
     re_clerk = r"^\s+(?P<start>The Clerk (read|designated))"
+<<<<<<< HEAD
     re_allcaps = r"^ \s*(?!([_=]+|-{3,}))(?!I\s)(?!SEC\.\s+\d)(?!\([a-z0-9]\))(?!``)(?P<title>(?!.*,\s*I\s)(?!.*--)(?!.*[A-Z]\.\s+[A-Z].*,\s*$)([A-Z]+[^a-z]+))$"
+=======
+    re_allcaps = r"^ \s*(?!([_=]+|-{3,}|H\.(R\.|J\. Res\.|Con\. Res\.|Res\.)|S\.))(?P<title>([A-Z]+[^a-z]+))$"
+>>>>>>> claude/parse-constitutional-authority-011CUrf4ZxY3wT8ikk9N2nXF
     re_linebreak = r"\s+([_=]+|-{5,})(NOTE|END NOTE)?([_=]+|-{5,})*\s*"
     re_excerpt = r"\s+(_{3,4})"
     re_newpage = r"\s*\[\[Page \w+\]\]"
@@ -462,6 +468,14 @@ class ParseCRFile(object):
             "speaker_group": "name",
             "break_flow": True,
             "special_case": False,
+        },
+        "constitutional_authority": {
+            "patterns": [re_constitutional_authority],
+            "speaker_re": True,
+            "speaker_group": "name",
+            "break_flow": True,
+            "special_case": True,
+            "condition": "constitutional_authority",
         },
         "recorder": {
             "patterns": [re_recorderstart, re_recorderend, re_recorder_ncj],
