@@ -64,7 +64,9 @@ class testLineBreak(unittest.TestCase):
             with open(thepath, "r") as thefile:
                 thejson = json.load(thefile)
             for item in thejson["content"]:
-                if item["kind"] != "speech":
+                # Exclude speech, committee_election, and committee_resignation items
+                # as they legitimately contain speaker patterns
+                if item["kind"] not in ["speech", "committee_election", "committee_resignation"]:
                     for line in item["text"].split("\n"):
                         self.assertFalse(self.sp.match(line), "Check {0}".format(apath))
 

@@ -44,6 +44,8 @@ class ParseCRFile(object):
     re_constitutional_authority = r"^\s+By (?P<name>M(r|s|rs|iss)\. [A-Z]+.*?):"
     re_bill_number = r"^\s+(H\.(R\.|J\. Res\.|Con\. Res\.|Res\.)|S\.) \d+"
     re_prayer = r"^\s+The (?P<title>(?:Chaplain|Reverend|Rabbi|Imam|Father|Pastor|Minister|Priest|Bishop).*?),"
+    re_committee_election = r"^\s+The (?P<name>SPEAKER pro tempore|SPEAKER|PRESIDING OFFICER)\. The Chair announces"
+    re_committee_resignation = r"^\s+The (?P<name>PRESIDING OFFICER) laid before the (House|Senate) the following letter:"
     re_recorderstart = (
         r"^\s+(?P<start>"
         + r"(The (assistant )?legislative clerk read as follows)"
@@ -627,13 +629,6 @@ class ParseCRFile(object):
     how I want to handle special cases.
     """
     item_types = {
-        "speech": {
-            "patterns": ["Mr. BOEHNER"],
-            "speaker_re": True,
-            "speaker_group": "name",
-            "break_flow": True,
-            "special_case": False,
-        },
         "constitutional_authority": {
             "patterns": [re_constitutional_authority],
             "speaker_re": True,
@@ -649,6 +644,29 @@ class ParseCRFile(object):
             "break_flow": True,
             "special_case": True,
             "condition": "prayer",
+        },
+        "committee_election": {
+            "patterns": [re_committee_election],
+            "speaker_re": True,
+            "speaker_group": "name",
+            "break_flow": True,
+            "special_case": True,
+            "condition": "committee_election",
+        },
+        "committee_resignation": {
+            "patterns": [re_committee_resignation],
+            "speaker_re": True,
+            "speaker_group": "name",
+            "break_flow": True,
+            "special_case": True,
+            "condition": "committee_resignation",
+        },
+        "speech": {
+            "patterns": ["Mr. BOEHNER"],
+            "speaker_re": True,
+            "speaker_group": "name",
+            "break_flow": True,
+            "special_case": False,
         },
         "recorder": {
             "patterns": [re_recorderstart, re_recorderend, re_recorder_ncj],

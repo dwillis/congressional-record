@@ -104,6 +104,87 @@ class crItem(object):
 
         return prayer_name, prayer_title
 
+    def extract_committee_election_info(self, text):
+        """Extract committees and members from committee election announcement."""
+        committees = []
+
+        # Normalize text: join lines that don't start with "COMMITTEE ON"
+        # This handles cases where member names are split across lines
+        normalized_lines = []
+        current_line = ""
+
+        for line in text.split('\n'):
+            stripped = line.strip()
+            if re.match(r'^\s*COMMITTEE ON', line, re.IGNORECASE):
+                # New committee - save previous line and start new one
+                if current_line:
+                    normalized_lines.append(current_line)
+                current_line = line
+            elif stripped and current_line:
+                # Continuation of previous line - join with space
+                current_line += " " + stripped
+            elif stripped:
+                # Standalone line (not part of committee)
+                if current_line:
+                    normalized_lines.append(current_line)
+                    current_line = ""
+                normalized_lines.append(line)
+
+        if current_line:
+            normalized_lines.append(current_line)
+
+        # Now parse the normalized lines
+        for line in normalized_lines:
+            committee_match = re.match(r'^\s*COMMITTEE ON ([A-Z\s]+):', line, re.IGNORECASE)
+            if committee_match:
+                committee_name = "COMMITTEE ON " + committee_match.group(1).strip()
+                # Extract members from this line (after the colon)
+                members_part = line.split(':', 1)[1] if ':' in line else ''
+                members = self._extract_members_from_text(members_part)
+
+                if members:
+                    committees.append({
+                        "name": committee_name,
+                        "members": members
+                    })
+
+        return committees
+
+    def _extract_members_from_text(self, text):
+        """Extract member names from text line."""
+        members = []
+        # Pattern to match names like "Mr. RYAN of Wisconsin", "Mrs. BLACKBURN of Tennessee"
+        # Improved pattern to capture the full name including state
+        pattern = r'M(?:r|s|rs|iss)\.\s+[A-Z]+(?:\s+of\s+[A-Za-z\s]+)?'
+
+        for match in re.finditer(pattern, text):
+            member = match.group(0).strip()
+            # Remove trailing punctuation
+            member = re.sub(r'[,.]$', '', member).strip()
+            if member:
+                members.append(member)
+        return members
+
+    def extract_committee_resignation_info(self, text):
+        """Extract committee and member from committee resignation letter."""
+        committee = None
+        member = None
+        state = None
+
+        # Look for committee name in resignation text
+        committee_match = re.search(r'Committee on ([A-Za-z\s]+)', text, re.IGNORECASE)
+        if committee_match:
+            committee = "Committee on " + committee_match.group(1).strip().rstrip(',.')
+
+        # Look for member name in signature
+        # Pattern: name followed by "U.S. Senator from [State]"
+        member_match = re.search(r'([A-Z][a-z]+(?:\s+[A-Z]\.\s+)?[A-Z][a-z]+),?\s+U\.S\. Senator from ([A-Za-z\s]+)', text)
+        if member_match:
+            member = member_match.group(1).strip()
+            state = member_match.group(2).strip().rstrip('.')
+
+        return committee, member, state
+
     def item_builder(self):
         parent = self.parent
         if parent.lines_remaining == False:
@@ -172,6 +253,27 @@ class crItem(object):
                 self.item["prayer_name"] = prayer_name
             if prayer_title:
                 self.item["prayer_title"] = prayer_title
+
+        # Extract committee election information if applicable
+        if self.item["kind"] == "committee_election":
+            committees = self.extract_committee_election_info(item_text)
+            if committees:
+                self.item["committees"] = committees
+            # Fix speaker name to include "The"
+            if self.item["speaker"] and not self.item["speaker"].startswith("The "):
+                self.item["speaker"] = "The " + self.item["speaker"]
+
+        # Extract committee resignation information if applicable
+        if self.item["kind"] == "committee_resignation":
+            committee, member, state = self.extract_committee_resignation_info(item_text)
+            if committee:
+                self.item["committee"] = committee
+            if member:
+                self.item["member"] = member
+                # For committee resignations, the speaker is the person resigning
+                self.item["speaker"] = member
+            if state:
+                self.item["state"] = state
 
     def __init__(self, parent):
         self.item = {"kind": "Unknown", "speaker": "Unknown", "text": None, "turn": -1}
