@@ -1,0 +1,57 @@
+{
+  "header": {
+    "vol": "151",
+    "num": "99",
+    "wkday": "Wednesday",
+    "month": "July",
+    "day": "20",
+    "year": "2005",
+    "chamber": "House",
+    "pages": "H6100",
+    "extension": false
+  },
+  "content": [
+    {
+      "kind": "metacharacters",
+      "speaker": "None",
+      "text": "[[Page H6100]]\n",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "itemno": 0
+    },
+    {
+      "kind": "title",
+      "speaker": "None",
+      "text": "                      ELECTION TO STANDING COMMITTEES\n",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "itemno": 1
+    },
+    {
+      "kind": "committee_election",
+      "speaker": "The SPEAKER pro tempore",
+      "text": "  The SPEAKER pro tempore. The Chair announces the Speaker's\nappointment, pursuant to clause 10 of rule I, clause 11 of rule X, and\nthe order of the House of today, of the following Members of the House\nto the following standing committees of the House:\n\n  COMMITTEE ON WAYS AND MEANS: Mr. RYAN of Wisconsin.\n  COMMITTEE ON ENERGY AND COMMERCE: Mrs. BLACKBURN of Tennessee, Mr.\nBURGESS of Texas.\n  COMMITTEE ON APPROPRIATIONS: Mr. CRENSHAW of Florida, Mr. CARTER of\nTexas, Mr. COLE of Oklahoma.\n\n",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "itemno": 2,
+      "committees": [
+        {
+          "name": "COMMITTEE ON WAYS AND MEANS",
+          "members": ["Mr. RYAN of Wisconsin"]
+        },
+        {
+          "name": "COMMITTEE ON ENERGY AND COMMERCE",
+          "members": ["Mrs. BLACKBURN of Tennessee", "Mr. BURGESS of Texas"]
+        },
+        {
+          "name": "COMMITTEE ON APPROPRIATIONS",
+          "members": ["Mr. CRENSHAW of Florida", "Mr. CARTER of Texas", "Mr. COLE of Oklahoma"]
+        }
+      ]
+    }
+  ],
+  "id": "CREC-2005-07-20-pt1-PgH6100-CommitteeElection",
+  "doc_title": "ELECTION TO STANDING COMMITTEES",
+  "title": null,
+  "document_type": null
+}

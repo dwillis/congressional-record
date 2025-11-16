@@ -161,3 +161,86 @@ class testConstitutionalAuthority(unittest.TestCase):
         self.assertEqual(ca_items[3]["constitutional_authority_article"], "V")
         self.assertNotIn("constitutional_authority_section", ca_items[3])
         self.assertNotIn("constitutional_authority_clause", ca_items[3])
+
+
+class testCommitteeElection(unittest.TestCase):
+    def setUp(self):
+        input_string = "tests/test_files/CREC-2005-07-20"
+        self.crdir = cr.ParseCRDir(input_string)
+        self.input_path = "tests/test_files/CREC-2005-07-20/html/CREC-2005-07-20-pt1-PgH6100-CommitteeElection.htm"
+
+    def test_committee_election_parsing(self):
+        """
+        Test that committee elections are correctly parsed
+        """
+        crfile = cr.ParseCRFile(self.input_path, self.crdir)
+
+        # Find all committee election items
+        ce_items = [item for item in crfile.crdoc.get("content", [])
+                    if item.get("kind") == "committee_election"]
+
+        # Should have 1 committee election announcement
+        self.assertEqual(len(ce_items), 1, "Should have 1 committee election announcement")
+
+        # Test the committee election item
+        self.assertEqual(ce_items[0]["speaker"], "The SPEAKER pro tempore")
+        self.assertIn("COMMITTEE ON WAYS AND MEANS", ce_items[0]["text"])
+        self.assertIn("COMMITTEE ON ENERGY AND COMMERCE", ce_items[0]["text"])
+        self.assertIn("COMMITTEE ON APPROPRIATIONS", ce_items[0]["text"])
+
+        # Test that committees field exists and has correct structure
+        self.assertIn("committees", ce_items[0])
+        committees = ce_items[0]["committees"]
+        self.assertEqual(len(committees), 3, "Should have 3 committees")
+
+        # Test first committee: Ways and Means
+        self.assertEqual(committees[0]["name"], "COMMITTEE ON WAYS AND MEANS")
+        self.assertEqual(committees[0]["members"], ["Mr. RYAN of Wisconsin"])
+
+        # Test second committee: Energy and Commerce
+        self.assertEqual(committees[1]["name"], "COMMITTEE ON ENERGY AND COMMERCE")
+        self.assertEqual(len(committees[1]["members"]), 2)
+        self.assertIn("Mrs. BLACKBURN of Tennessee", committees[1]["members"])
+        self.assertIn("Mr. BURGESS of Texas", committees[1]["members"])
+
+        # Test third committee: Appropriations
+        self.assertEqual(committees[2]["name"], "COMMITTEE ON APPROPRIATIONS")
+        self.assertEqual(len(committees[2]["members"]), 3)
+        self.assertIn("Mr. CRENSHAW of Florida", committees[2]["members"])
+        self.assertIn("Mr. CARTER of Texas", committees[2]["members"])
+        self.assertIn("Mr. COLE of Oklahoma", committees[2]["members"])
+
+
+class testCommitteeResignation(unittest.TestCase):
+    def setUp(self):
+        input_string = "tests/test_files/CREC-2005-07-20"
+        self.crdir = cr.ParseCRDir(input_string)
+        self.input_path = "tests/test_files/CREC-2005-07-20/html/CREC-2005-07-20-pt1-PgS8400-CommitteeResignation.htm"
+
+    def test_committee_resignation_parsing(self):
+        """
+        Test that committee resignations are correctly parsed
+        """
+        crfile = cr.ParseCRFile(self.input_path, self.crdir)
+
+        # Find all committee resignation items
+        cr_items = [item for item in crfile.crdoc.get("content", [])
+                    if item.get("kind") == "committee_resignation"]
+
+        # Should have 1 committee resignation
+        self.assertEqual(len(cr_items), 1, "Should have 1 committee resignation")
+
+        # Test the resignation item
+        self.assertEqual(cr_items[0]["speaker"], "Olympia J. Snowe")
+        self.assertIn("Committee on Finance", cr_items[0]["text"])
+        self.assertIn("resign my seat", cr_items[0]["text"])
+
+        # Test that committee resignation fields exist
+        self.assertIn("committee", cr_items[0])
+        self.assertEqual(cr_items[0]["committee"], "Committee on Finance")
+
+        self.assertIn("member", cr_items[0])
+        self.assertEqual(cr_items[0]["member"], "Olympia J. Snowe")
+
+        self.assertIn("state", cr_items[0])
+        self.assertEqual(cr_items[0]["state"], "Maine")

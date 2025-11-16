@@ -1,0 +1,78 @@
+{
+  "header": {
+    "vol": "151",
+    "num": "99",
+    "wkday": "Wednesday",
+    "month": "July",
+    "day": "20",
+    "year": "2005",
+    "chamber": "Senate",
+    "pages": "S8400",
+    "extension": false
+  },
+  "content": [
+    {
+      "kind": "metacharacters",
+      "speaker": "None",
+      "text": "[[Page S8400]]\n",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "itemno": 0
+    },
+    {
+      "kind": "title",
+      "speaker": "None",
+      "text": "                      COMMITTEE RESIGNATIONS\n",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "itemno": 1
+    },
+    {
+      "kind": "speech",
+      "speaker": "The PRESIDING OFFICER",
+      "text": "  The PRESIDING OFFICER. The Chair, on behalf of the Majority Leader,\npursuant to Public Law 106-286, appoints the following Senator to the\nCommission on Security and Cooperation in Europe:\n\n  The Senator from Tennessee (Mr. ALEXANDER).",
+      "turn": 0,
+      "speaker_bioguide": null,
+      "itemno": 2
+    },
+    {
+      "kind": "speech",
+      "speaker": "The PRESIDING OFFICER",
+      "text": "  The PRESIDING OFFICER laid before the Senate the following letter:",
+      "turn": 1,
+      "speaker_bioguide": null,
+      "itemno": 3
+    },
+    {
+      "kind": "committee_resignation",
+      "speaker": "Olympia J. Snowe",
+      "text": "                                                     U.S. Senate,\n                                          Committee on Finance,\n                                   Washington, DC, July 19, 2005.\nHon. Bill Frist,\nMajority Leader, U.S. Senate, Washington, DC.\n  Dear Mr. Leader: I hereby resign my seat on the Committee on\nFinance, effective immediately.\n                                                       Sincerely,\n                                                  Olympia J. Snowe,\n                                            U.S. Senator from Maine.",
+      "turn": -1,
+      "speaker_bioguide": null,
+      "itemno": 4,
+      "committee": "Committee on Finance",
+      "member": "Olympia J. Snowe",
+      "state": "Maine"
+    },
+    {
+      "kind": "speech",
+      "speaker": "Mr. FRIST",
+      "text": "  Mr. FRIST. Mr. President, I ask unanimous consent that the\nresignation be accepted and printed in the Record.",
+      "turn": 0,
+      "speaker_bioguide": null,
+      "itemno": 5
+    },
+    {
+      "kind": "speech",
+      "speaker": "The PRESIDING OFFICER",
+      "text": "  The PRESIDING OFFICER. Without objection, it is so ordered.\n\n",
+      "turn": 2,
+      "speaker_bioguide": null,
+      "itemno": 6
+    }
+  ],
+  "id": "CREC-2005-07-20-pt1-PgS8400-CommitteeResignation",
+  "doc_title": "COMMITTEE RESIGNATIONS",
+  "title": null,
+  "document_type": null
+}
