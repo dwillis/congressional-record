@@ -209,7 +209,8 @@ class ParseCRFile(object):
         Parse committee elections from the Congressional Record document.
 
         Committee elections are typically found in documents with titles like
-        "ELECTION OF MEMBERS TO COMMITTEES" or similar. The structure includes:
+        "ELECTING MEMBERS TO CERTAIN STANDING COMMITTEES OF THE HOUSE OF REPRESENTATIVES"
+        or "ELECTION OF MEMBERS TO COMMITTEES". The structure includes:
         - The date of the election (from the document date)
         - The committee name
         - A list of members with their bioguide IDs
@@ -220,17 +221,23 @@ class ParseCRFile(object):
         # Check if this is a committee election document by looking at the title
         title = self.doc_title if hasattr(self, 'doc_title') else None
 
-        # Initialize as None - will be populated when committee elections are detected
-        if title and any(keyword in title.upper() for keyword in
-                        ["COMMITTEE ELECTION", "ELECTION OF MEMBERS",
-                         "APPOINTMENT TO COMMITTEES", "ELECTED TO COMMITTEES"]):
-            # Placeholder for actual parsing logic
-            # When actual committee election HTML structure is known, this can be implemented
-            # to extract:
-            # - date (from self.doc_date)
-            # - committee name
-            # - members list with bioguide IDs
-            pass
+        # Keywords to identify committee election documents
+        election_keywords = [
+            "ELECTING MEMBERS TO",
+            "COMMITTEE ELECTION",
+            "ELECTION OF MEMBERS",
+            "APPOINTMENT TO COMMITTEES",
+            "ELECTED TO COMMITTEES"
+        ]
+
+        # Check if this document is about committee elections
+        if title and any(keyword in title.upper() for keyword in election_keywords):
+            # This will be populated after content is parsed
+            # The actual extraction happens in a post-processing step
+            # after all content items are collected
+            self._is_committee_election = True
+        else:
+            self._is_committee_election = False
 
     def find_committee_resignations(self):
         """
@@ -248,17 +255,118 @@ class ParseCRFile(object):
         # Check if this is a committee resignation document by looking at the title
         title = self.doc_title if hasattr(self, 'doc_title') else None
 
-        # Initialize as None - will be populated when committee resignations are detected
-        if title and any(keyword in title.upper() for keyword in
-                        ["COMMITTEE RESIGNATION", "RESIGNATION FROM COMMITTEES",
-                         "RESIGNED FROM COMMITTEES"]):
-            # Placeholder for actual parsing logic
-            # When actual committee resignation HTML structure is known, this can be implemented
-            # to extract:
-            # - date (from self.doc_date)
-            # - committee name
-            # - members list with bioguide IDs
-            pass
+        # Keywords to identify committee resignation documents
+        resignation_keywords = [
+            "RESIGNATION FROM COMMITTEE",
+            "RESIGNED FROM COMMITTEE",
+            "COMMITTEE RESIGNATION"
+        ]
+
+        # Check if this document is about committee resignations
+        if title and any(keyword in title.upper() for keyword in resignation_keywords):
+            # This will be populated after content is parsed
+            # The actual extraction happens in a post-processing step
+            # after all content items are collected
+            self._is_committee_resignation = True
+        else:
+            self._is_committee_resignation = False
+
+    def extract_committee_data_from_content(self):
+        """
+        Extract committee election and resignation data from parsed content.
+
+        This method is called after content parsing to extract structured
+        committee election/resignation data from the content items.
+        """
+        if not (hasattr(self, '_is_committee_election') or
+                hasattr(self, '_is_committee_resignation')):
+            return
+
+        is_election = getattr(self, '_is_committee_election', False)
+        is_resignation = getattr(self, '_is_committee_resignation', False)
+
+        if not (is_election or is_resignation):
+            return
+
+        # Extract date from document
+        date_str = None
+        if hasattr(self, 'doc_date'):
+            date_str = self.doc_date.strftime('%Y-%m-%d')
+
+        if not date_str:
+            # If no document date, can't proceed
+            return
+
+        # Parse content to extract committee names and members
+        # This is a simplified parser - will need refinement based on actual examples
+        committee_records = []
+        current_committee = None
+        current_members = []
+
+        # Combine all content text
+        full_text = ""
+        if "content" in self.crdoc and isinstance(self.crdoc["content"], list):
+            for item in self.crdoc["content"]:
+                if isinstance(item, dict) and "text" in item:
+                    full_text += item["text"] + "\n"
+
+        # Simple pattern to find committee names (lines with "Committee on" or similar)
+        # and member names (lines starting with M(r|s|rs). NAME or just NAME)
+        lines = full_text.split('\n')
+        for line in lines:
+            line = line.strip()
+
+            # Check if this is a committee name
+            if any(pattern in line for pattern in ["Committee on", "COMMITTEE ON"]):
+                # Save previous committee if exists
+                if current_committee and current_members:
+                    committee_records.append({
+                        "date": date_str,
+                        "committee": current_committee,
+                        "members": current_members
+                    })
+                # Start new committee
+                current_committee = line.strip('.,;:')
+                current_members = []
+
+            # Check if this line contains a member name
+            # Look for patterns like "Mr. NAME" or just member names
+            elif line and current_committee:
+                # Try to extract member name and match to bioguide
+                # Match patterns like "Mr. LASTNAME", "Mrs. LASTNAME", etc.
+                member_match = re.search(r'M(?:r|s|rs)\.\s+([A-Z][A-Za-z\-\']+)', line)
+                if member_match and self.speakers:
+                    member_name = member_match.group(0)
+                    # Try to find bioguide ID from speakers dict
+                    bioguide_id = None
+                    member_full_name = None
+
+                    for speaker_name, speaker_data in self.speakers.items():
+                        if member_name.upper() in speaker_name.upper():
+                            bioguide_id = speaker_data.get('bioguideid')
+                            member_full_name = speaker_name
+                            break
+
+                    if bioguide_id:
+                        current_members.append({
+                            "bioguide_id": bioguide_id,
+                            "name": member_full_name
+                        })
+
+        # Don't forget the last committee
+        if current_committee and current_members:
+            committee_records.append({
+                "date": date_str,
+                "committee": current_committee,
+                "members": current_members
+            })
+
+        # Store in appropriate field
+        if committee_records:
+            if is_election:
+                self.crdoc["committee_elections"] = committee_records
+            elif is_resignation:
+                self.crdoc["committee_resignations"] = committee_records
 
     def date_from_entry(self):
         year, month, day = re.match(self.re_time, self.access_path).group(
@@ -497,6 +605,8 @@ class ParseCRFile(object):
         self.the_text = self.read_htm_file()
         self.write_header()
         self.write_page()
+        # Extract committee elections/resignations if applicable
+        self.extract_committee_data_from_content()
 
     """
     This is a dict of line cases.
