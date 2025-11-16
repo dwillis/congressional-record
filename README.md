@@ -24,6 +24,14 @@ The parser identifies and categorizes the following types of content:
 - **Title** - Section headings and titles within the Congressional Record
 - **Linebreak** - Formatting breaks and section dividers
 
+## Document Types
+
+In addition to content types, the parser identifies special document types for reports that differ from regular proceedings:
+
+- **Foreign Travel Expenditure** - Reports of congressional foreign travel expenditures (identified by `document_type: "foreign_travel_expenditure"`)
+
+Regular congressional proceedings have `document_type: null`.
+
 All content is output as JSON with standardized fields including speaker identification, text content, and metadata.
 
 This software is released as-is under the BSD3 License, with no warranty of any kind.
