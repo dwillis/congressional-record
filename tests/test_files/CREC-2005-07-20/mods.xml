@@ -49316,4 +49316,84 @@ understand this change will not affect the outcome of the vote.</result>
   <granuleDate>2005-07-20</granuleDate>
 </extension>
 </relatedItem>
+<relatedItem type="constituent" ID="id-CREC-2005-07-20-pt1-PgH6100-CommitteeElection" xlink:href="http://www.gpo.gov/fdsys/granule/CREC-2005-07-20/CREC-2005-07-20-pt1-PgH6100-CommitteeElection/mods.xml">
+ <titleInfo>
+  <title>ELECTION TO STANDING COMMITTEES</title>
+  <partName>House</partName>
+</titleInfo>
+ <relatedItem type="otherFormat" xlink:href="http://www.gpo.gov/fdsys/pkg/CREC-2005-07-20/html/CREC-2005-07-20-pt1-PgH6100-CommitteeElection.htm">
+  <identifier type="FDsys Unique ID">D09002ee18c71c991</identifier>
+</relatedItem>
+ <relatedItem type="otherFormat" xlink:href="http://www.gpo.gov/fdsys/pkg/CREC-2005-07-20/pdf/CREC-2005-07-20-pt1-PgH6100-CommitteeElection.pdf">
+  <identifier type="FDsys Unique ID">D09002ee18c71c992</identifier>
+</relatedItem>
+ <identifier type="congressional record citation">151 Cong. Rec. H6100</identifier>
+ <identifier type="uri">http://www.gpo.gov/fdsys/granule/CREC-2005-07-20/CREC-2005-07-20-pt1-PgH6100-CommitteeElection</identifier>
+ <identifier type="former granule identifier">CR20JY05-991</identifier>
+ <location>
+  <url access="object in context" displayLabel="Content Detail">http://www.gpo.gov/fdsys/granule/CREC-2005-07-20/CREC-2005-07-20-pt1-PgH6100-CommitteeElection/content-detail.html</url>
+  <url access="raw object" displayLabel="PDF rendition">http://www.gpo.gov/fdsys/pkg/CREC-2005-07-20/pdf/CREC-2005-07-20-pt1-PgH6100-CommitteeElection.pdf</url>
+  <url access="raw object" displayLabel="HTML rendition">http://www.gpo.gov/fdsys/pkg/CREC-2005-07-20/html/CREC-2005-07-20-pt1-PgH6100-CommitteeElection.htm</url>
+</location>
+ <physicalDescription>
+  <extent>1 p.</extent>
+</physicalDescription>
+ <part type="article">
+  <extent unit="pages">
+   <start>H6100</start>
+   <end>H6100</end>
+</extent>
+</part>
+ <identifier type="preferred citation">151 Cong. Rec. H6100</identifier>
+ <extension>
+  <searchTitle>ELECTION TO STANDING COMMITTEES; Congressional Record Vol. 151, No. 99</searchTitle>
+  <granuleClass>HOUSE</granuleClass>
+  <accessId>CREC-2005-07-20-pt1-PgH6100-CommitteeElection</accessId>
+  <subGranuleClass>ALLOTHER</subGranuleClass>
+  <pagePrefix>H</pagePrefix>
+  <bookNumber>1</bookNumber>
+  <chamber>HOUSE</chamber>
+  <granuleDate>2005-07-20</granuleDate>
+</extension>
+</relatedItem>
+<relatedItem type="constituent" ID="id-CREC-2005-07-20-pt1-PgS8400-CommitteeResignation" xlink:href="http://www.gpo.gov/fdsys/granule/CREC-2005-07-20/CREC-2005-07-20-pt1-PgS8400-CommitteeResignation/mods.xml">
+ <titleInfo>
+  <title>COMMITTEE RESIGNATIONS</title>
+  <partName>Senate</partName>
+</titleInfo>
+ <relatedItem type="otherFormat" xlink:href="http://www.gpo.gov/fdsys/pkg/CREC-2005-07-20/html/CREC-2005-07-20-pt1-PgS8400-CommitteeResignation.htm">
+  <identifier type="FDsys Unique ID">D09002ee18c71c993</identifier>
+</relatedItem>
+ <relatedItem type="otherFormat" xlink:href="http://www.gpo.gov/fdsys/pkg/CREC-2005-07-20/pdf/CREC-2005-07-20-pt1-PgS8400-CommitteeResignation.pdf">
+  <identifier type="FDsys Unique ID">D09002ee18c71c994</identifier>
+</relatedItem>
+ <identifier type="congressional record citation">151 Cong. Rec. S8400</identifier>
+ <identifier type="uri">http://www.gpo.gov/fdsys/granule/CREC-2005-07-20/CREC-2005-07-20-pt1-PgS8400-CommitteeResignation</identifier>
+ <identifier type="former granule identifier">CR20JY05-992</identifier>
+ <location>
+  <url access="object in context" displayLabel="Content Detail">http://www.gpo.gov/fdsys/granule/CREC-2005-07-20/CREC-2005-07-20-pt1-PgS8400-CommitteeResignation/content-detail.html</url>
+  <url access="raw object" displayLabel="PDF rendition">http://www.gpo.gov/fdsys/pkg/CREC-2005-07-20/pdf/CREC-2005-07-20-pt1-PgS8400-CommitteeResignation.pdf</url>
+  <url access="raw object" displayLabel="HTML rendition">http://www.gpo.gov/fdsys/pkg/CREC-2005-07-20/html/CREC-2005-07-20-pt1-PgS8400-CommitteeResignation.htm</url>
+</location>
+ <physicalDescription>
+  <extent>1 p.</extent>
+</physicalDescription>
+ <part type="article">
+  <extent unit="pages">
+   <start>S8400</start>
+   <end>S8400</end>
+</extent>
+</part>
+ <identifier type="preferred citation">151 Cong. Rec. S8400</identifier>
+ <extension>
+  <searchTitle>COMMITTEE RESIGNATIONS; Congressional Record Vol. 151, No. 99</searchTitle>
+  <granuleClass>SENATE</granuleClass>
+  <accessId>CREC-2005-07-20-pt1-PgS8400-CommitteeResignation</accessId>
+  <subGranuleClass>ALLOTHER</subGranuleClass>
+  <pagePrefix>S</pagePrefix>
+  <bookNumber>1</bookNumber>
+  <chamber>SENATE</chamber>
+  <granuleDate>2005-07-20</granuleDate>
+</extension>
+</relatedItem>
 </mods>
