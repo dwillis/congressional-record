@@ -5,13 +5,26 @@
 
 # congressional-record
 
-This tool converts HTML files containing the text of the Congressional Record into structured text data. It is particularly useful for identifying speeches by members of Congress.
+This tool converts HTML files containing the text of the Congressional Record into structured text data. It identifies and parses various types of congressional content including speeches, procedural text, and official statements.
 
 From the repository root, type `python -m congressionalrecord.cli -h` for instructions.
 
-- It outputs JSON
-- Instances of speech are tagged with the speaker's bioguideid wherever possible
-- Instances of speech are recorded as "turns," such that each subsequent instance of speech by a Member counts as a new "turn."
+## Content Types
+
+The parser identifies and categorizes the following types of content:
+
+- **Speech** - Floor speeches and statements by members of Congress, tagged with the speaker's bioguideid wherever possible. Speeches are recorded as "turns," such that each subsequent instance of speech by a Member counts as a new "turn."
+- **Prayer** - Opening prayers delivered by chaplains or guest clergy at the beginning of legislative sessions
+- **Constitutional Authority** - Constitutional Authority Statements filed by members when introducing bills, including the bill number and constitutional article/section/clause cited
+- **Committee Election** - Announcements of members being elected to congressional committees
+- **Committee Resignation** - Letters and announcements of members resigning from committees
+- **Recorder** - Comments and readings by the legislative clerk or recorder
+- **Clerk** - Statements and readings by the House or Senate Clerk
+- **Rollcall** - Rollcall vote records and results
+- **Title** - Section headings and titles within the Congressional Record
+- **Linebreak** - Formatting breaks and section dividers
+
+All content is output as JSON with standardized fields including speaker identification, text content, and metadata.
 
 This software is released as-is under the BSD3 License, with no warranty of any kind.
 
