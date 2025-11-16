@@ -242,3 +242,52 @@ class testCommitteeResignation(unittest.TestCase):
 
         self.assertIn("state", cr_items[0])
         self.assertEqual(cr_items[0]["state"], "Maine")
+
+class testPrayer(unittest.TestCase):
+    def setUp(self):
+        input_string = "tests/test_files/CREC-2005-07-20"
+        self.crdir = cr.ParseCRDir(input_string)
+
+    def test_house_prayer_parsing(self):
+        """
+        Test that House prayer is correctly parsed
+        """
+        input_path = "tests/test_files/CREC-2005-07-20/html/CREC-2005-07-20-pt1-PgH6109-3.htm"
+        crfile = cr.ParseCRFile(input_path, self.crdir)
+
+        # Find prayer item
+        prayer_items = [item for item in crfile.crdoc.get("content", [])
+                       if item.get("kind") == "prayer"]
+
+        # Should have 1 prayer
+        self.assertEqual(len(prayer_items), 1, "Should have 1 prayer item")
+
+        # Test prayer details
+        prayer = prayer_items[0]
+        self.assertEqual(prayer["kind"], "prayer")
+        self.assertIn("Reverend Dr. Kenneth L. Samuel", prayer["prayer_name"])
+        self.assertIn("Pastor, Victory Baptist Church, Stone Mountain, GA", prayer["prayer_title"])
+        self.assertIn("Gracious and most loving God", prayer["text"])
+        self.assertIn("Amen.", prayer["text"])
+
+    def test_senate_prayer_parsing(self):
+        """
+        Test that Senate prayer is correctly parsed
+        """
+        input_path = "tests/test_files/CREC-2005-07-20/html/CREC-2005-07-20-pt1-PgS8503-2.htm"
+        crfile = cr.ParseCRFile(input_path, self.crdir)
+
+        # Find prayer item
+        prayer_items = [item for item in crfile.crdoc.get("content", [])
+                       if item.get("kind") == "prayer"]
+
+        # Should have 1 prayer
+        self.assertEqual(len(prayer_items), 1, "Should have 1 prayer item")
+
+        # Test prayer details
+        prayer = prayer_items[0]
+        self.assertEqual(prayer["kind"], "prayer")
+        self.assertEqual(prayer["prayer_name"], "Dr. Barry C. Black")
+        self.assertEqual(prayer["prayer_title"], "Chaplain")
+        self.assertIn("Eternal Spirit", prayer["text"])
+        self.assertIn("Amen.", prayer["text"])
