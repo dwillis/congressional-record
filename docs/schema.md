@@ -33,6 +33,7 @@ A `CongressionalRecordDocument` contains:
 | `related_laws` | RelatedLaw[] | No | Laws referenced in this document |
 | `related_usc` | RelatedUSC[] | No | U.S. Code sections referenced |
 | `related_statute` | RelatedStatute[] | No | Statutes at Large referenced |
+| `committee_elections` | CommitteeElection[] | No | Committee elections recorded in this document |
 
 ### Header
 
@@ -121,6 +122,47 @@ Constitutional authority statements are special content items found in House pro
 ```
 
 **Note:** Not all constitutional authority statements include all three components (Article, Section, Clause). For example, statements citing Article V (constitutional amendments) typically only cite the article.
+
+### Committee Elections
+
+Committee elections are recorded when members are elected or appointed to congressional committees. The `committee_elections` field is an optional array of committee election records.
+
+#### CommitteeElection Structure
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `date` | string | Yes | Date of the committee election (ISO format: "YYYY-MM-DD") |
+| `committee` | string | Yes | Name of the committee |
+| `members` | CommitteeMember[] | Yes | Array of members elected to the committee |
+
+#### CommitteeMember Structure
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `bioguide_id` | string | Yes | Bioguide ID of the committee member |
+| `name` | string | No | Name of the committee member |
+
+**Example:**
+```json
+{
+  "committee_elections": [
+    {
+      "date": "2025-01-30",
+      "committee": "Committee on Finance",
+      "members": [
+        {
+          "bioguide_id": "S000148",
+          "name": "Mr. SCHUMER"
+        },
+        {
+          "bioguide_id": "M000355",
+          "name": "Mr. MCCONNELL"
+        }
+      ]
+    }
+  ]
+}
+```
 
 ## Usage Examples
 

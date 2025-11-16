@@ -68,6 +68,31 @@ class RelatedStatute(BaseModel):
     # Based on find_related_statute() in cr_parser.py
 
 
+class CommitteeMember(BaseModel):
+    """A member elected to a committee."""
+
+    bioguide_id: str = Field(
+        ..., description="Bioguide ID of the committee member"
+    )
+    name: Optional[str] = Field(
+        None, description="Name of the committee member"
+    )
+
+
+class CommitteeElection(BaseModel):
+    """Record of a committee election."""
+
+    date: str = Field(
+        ..., description="Date of the committee election (e.g., '2025-01-30')"
+    )
+    committee: str = Field(
+        ..., description="Name of the committee"
+    )
+    members: List[CommitteeMember] = Field(
+        ..., description="Array of members elected to the committee"
+    )
+
+
 class ContentItem(BaseModel):
     """A single item of content from the Congressional Record (speech, note, etc.)."""
 
@@ -151,6 +176,9 @@ class CongressionalRecordDocument(BaseModel):
     )
     related_statute: Optional[List[RelatedStatute]] = Field(
         None, description="Statutes at Large referenced in this document"
+    )
+    committee_elections: Optional[List[CommitteeElection]] = Field(
+        None, description="Committee elections recorded in this document"
     )
 
     class Config:

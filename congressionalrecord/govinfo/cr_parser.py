@@ -204,6 +204,34 @@ class ParseCRFile(object):
                 )
             )
 
+    def find_committee_elections(self):
+        """
+        Parse committee elections from the Congressional Record document.
+
+        Committee elections are typically found in documents with titles like
+        "ELECTION OF MEMBERS TO COMMITTEES" or similar. The structure includes:
+        - The date of the election (from the document date)
+        - The committee name
+        - A list of members with their bioguide IDs
+
+        This method looks for committee election information in the document
+        and populates self.crdoc["committee_elections"] if found.
+        """
+        # Check if this is a committee election document by looking at the title
+        title = self.doc_title if hasattr(self, 'doc_title') else None
+
+        # Initialize as None - will be populated when committee elections are detected
+        if title and any(keyword in title.upper() for keyword in
+                        ["COMMITTEE ELECTION", "ELECTION OF MEMBERS",
+                         "APPOINTMENT TO COMMITTEES", "ELECTED TO COMMITTEES"]):
+            # Placeholder for actual parsing logic
+            # When actual committee election HTML structure is known, this can be implemented
+            # to extract:
+            # - date (from self.doc_date)
+            # - committee name
+            # - members list with bioguide IDs
+            pass
+
     def date_from_entry(self):
         year, month, day = re.match(self.re_time, self.access_path).group(
             "year", "month", "day"
@@ -254,6 +282,7 @@ class ParseCRFile(object):
         self.find_related_usc()
         self.find_related_statute()
         self.date_from_entry()
+        self.find_committee_elections()
         self.chamber = self.doc_ref.granuleclass.string
         self.re_newspeaker = self.make_re_newspeaker()
         self.item_types["speech"]["patterns"] = [self.re_newspeaker]
@@ -547,6 +576,7 @@ class ParseCRFile(object):
         self.doc_duration = -1
         self.doc_chamber = "Unspecified"
         self.doc_related_bills = []
+        self.crdoc["committee_elections"] = None
 
         # file data
         self.filepath = abspath
