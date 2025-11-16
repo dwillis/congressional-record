@@ -34,6 +34,7 @@ A `CongressionalRecordDocument` contains:
 | `related_usc` | RelatedUSC[] | No | U.S. Code sections referenced |
 | `related_statute` | RelatedStatute[] | No | Statutes at Large referenced |
 | `committee_elections` | CommitteeElection[] | No | Committee elections recorded in this document |
+| `committee_resignations` | CommitteeResignation[] | No | Committee resignations recorded in this document |
 
 ### Header
 
@@ -157,6 +158,38 @@ Committee elections are recorded when members are elected or appointed to congre
         {
           "bioguide_id": "M000355",
           "name": "Mr. MCCONNELL"
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Committee Resignations
+
+Committee resignations are recorded when members resign from congressional committees. The `committee_resignations` field is an optional array of committee resignation records.
+
+#### CommitteeResignation Structure
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `date` | string | Yes | Date of the committee resignation (ISO format: "YYYY-MM-DD") |
+| `committee` | string | Yes | Name of the committee |
+| `members` | CommitteeMember[] | Yes | Array of members who resigned from the committee |
+
+**Note:** CommitteeResignation uses the same CommitteeMember structure as CommitteeElection (see above).
+
+**Example:**
+```json
+{
+  "committee_resignations": [
+    {
+      "date": "2025-01-30",
+      "committee": "Committee on Foreign Relations",
+      "members": [
+        {
+          "bioguide_id": "R000595",
+          "name": "Mr. RUBIO"
         }
       ]
     }

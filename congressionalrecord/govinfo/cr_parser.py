@@ -232,6 +232,34 @@ class ParseCRFile(object):
             # - members list with bioguide IDs
             pass
 
+    def find_committee_resignations(self):
+        """
+        Parse committee resignations from the Congressional Record document.
+
+        Committee resignations are typically found in documents with titles like
+        "RESIGNATION FROM COMMITTEES" or similar. The structure includes:
+        - The date of the resignation (from the document date)
+        - The committee name
+        - A list of members with their bioguide IDs
+
+        This method looks for committee resignation information in the document
+        and populates self.crdoc["committee_resignations"] if found.
+        """
+        # Check if this is a committee resignation document by looking at the title
+        title = self.doc_title if hasattr(self, 'doc_title') else None
+
+        # Initialize as None - will be populated when committee resignations are detected
+        if title and any(keyword in title.upper() for keyword in
+                        ["COMMITTEE RESIGNATION", "RESIGNATION FROM COMMITTEES",
+                         "RESIGNED FROM COMMITTEES"]):
+            # Placeholder for actual parsing logic
+            # When actual committee resignation HTML structure is known, this can be implemented
+            # to extract:
+            # - date (from self.doc_date)
+            # - committee name
+            # - members list with bioguide IDs
+            pass
+
     def date_from_entry(self):
         year, month, day = re.match(self.re_time, self.access_path).group(
             "year", "month", "day"
@@ -283,6 +311,7 @@ class ParseCRFile(object):
         self.find_related_statute()
         self.date_from_entry()
         self.find_committee_elections()
+        self.find_committee_resignations()
         self.chamber = self.doc_ref.granuleclass.string
         self.re_newspeaker = self.make_re_newspeaker()
         self.item_types["speech"]["patterns"] = [self.re_newspeaker]
@@ -577,6 +606,7 @@ class ParseCRFile(object):
         self.doc_chamber = "Unspecified"
         self.doc_related_bills = []
         self.crdoc["committee_elections"] = None
+        self.crdoc["committee_resignations"] = None
 
         # file data
         self.filepath = abspath

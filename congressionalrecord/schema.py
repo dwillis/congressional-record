@@ -93,6 +93,20 @@ class CommitteeElection(BaseModel):
     )
 
 
+class CommitteeResignation(BaseModel):
+    """Record of a committee resignation."""
+
+    date: str = Field(
+        ..., description="Date of the committee resignation (e.g., '2025-01-30')"
+    )
+    committee: str = Field(
+        ..., description="Name of the committee"
+    )
+    members: List[CommitteeMember] = Field(
+        ..., description="Array of members who resigned from the committee"
+    )
+
+
 class ContentItem(BaseModel):
     """A single item of content from the Congressional Record (speech, note, etc.)."""
 
@@ -179,6 +193,9 @@ class CongressionalRecordDocument(BaseModel):
     )
     committee_elections: Optional[List[CommitteeElection]] = Field(
         None, description="Committee elections recorded in this document"
+    )
+    committee_resignations: Optional[List[CommitteeResignation]] = Field(
+        None, description="Committee resignations recorded in this document"
     )
 
     class Config:
