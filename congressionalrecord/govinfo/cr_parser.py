@@ -43,6 +43,7 @@ class ParseCRFile(object):
     re_rollcall = r"\[Roll(call)?( Vote)? No. \d+.*\]"
     re_constitutional_authority = r"^\s+By (?P<name>M(r|s|rs|iss)\. [A-Z]+.*?):"
     re_bill_number = r"^\s+(H\.(R\.|J\. Res\.|Con\. Res\.|Res\.)|S\.) \d+"
+    re_prayer = r"^\s+The (?P<title>(?:Chaplain|Reverend|Rabbi|Imam|Father|Pastor|Minister|Priest|Bishop).*?),"
     re_recorderstart = (
         r"^\s+(?P<start>"
         + r"(The (assistant )?legislative clerk read as follows)"
@@ -640,6 +641,14 @@ class ParseCRFile(object):
             "break_flow": True,
             "special_case": True,
             "condition": "constitutional_authority",
+        },
+        "prayer": {
+            "patterns": [re_prayer],
+            "speaker_re": True,
+            "speaker_group": "title",
+            "break_flow": True,
+            "special_case": True,
+            "condition": "prayer",
         },
         "recorder": {
             "patterns": [re_recorderstart, re_recorderend, re_recorder_ncj],

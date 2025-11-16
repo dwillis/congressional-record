@@ -49,6 +49,61 @@ class crItem(object):
 
         return article, section, clause, bill_number
 
+    def extract_prayer_info(self, text):
+        """Extract name and title from prayer introduction text."""
+        # Initialize fields
+        prayer_name = None
+        prayer_title = None
+
+        # Pattern to match prayer introduction
+        # Examples:
+        # "The Chaplain, Dr. Barry C. Black, offered the following prayer:"
+        # "The Reverend Dr. Kenneth L. Samuel, Pastor, Victory Baptist Church,
+        # Stone Mountain, GA, offered the following prayer:"
+
+        # First, try to extract the full introduction. The text might span multiple lines.
+        # Remove newlines within the first few lines to handle line wrapping
+        text_normalized = re.sub(r'\n', ' ', text[:500])  # Normalize first 500 chars
+        # Normalize multiple spaces to single space
+        text_normalized = re.sub(r'\s+', ' ', text_normalized)
+
+        intro_match = re.search(
+            r"The (.+?), offered the following prayer:",
+            text_normalized,
+            re.IGNORECASE
+        )
+
+        if intro_match:
+            full_intro = intro_match.group(1).strip()
+
+            # Try to parse the intro. It can be in two main formats:
+            # 1. "Chaplain, Dr. Barry C. Black" (title, name)
+            # 2. "Reverend Dr. Kenneth L. Samuel, Pastor, Victory Baptist Church, Stone Mountain, GA" (name, additional title/affiliation)
+
+            # Check if it starts with "Chaplain" (Senate format)
+            if full_intro.startswith("Chaplain"):
+                # Senate format: "Chaplain, Dr. Barry C. Black"
+                parts = full_intro.split(",", 1)
+                if len(parts) == 2:
+                    prayer_title = parts[0].strip()  # "Chaplain"
+                    prayer_name = parts[1].strip()   # "Dr. Barry C. Black"
+                else:
+                    prayer_title = full_intro
+            else:
+                # House format: "Reverend Dr. Kenneth L. Samuel, Pastor, Victory Baptist Church, Stone Mountain, GA"
+                # The name typically comes first, followed by additional title/affiliation
+                parts = full_intro.split(",")
+                if len(parts) >= 2:
+                    # First part is typically the name with title prefix
+                    prayer_name = parts[0].strip()
+                    # Everything after is the additional title/affiliation
+                    # Strip each part and rejoin to normalize whitespace
+                    prayer_title = ", ".join(p.strip() for p in parts[1:])
+                else:
+                    prayer_name = full_intro
+
+        return prayer_name, prayer_title
+
     def item_builder(self):
         parent = self.parent
         if parent.lines_remaining == False:
@@ -109,6 +164,14 @@ class crItem(object):
                 self.item["constitutional_authority_clause"] = clause
             if bill_number:
                 self.item["bill_number"] = bill_number
+
+        # Extract prayer information if applicable
+        if self.item["kind"] == "prayer":
+            prayer_name, prayer_title = self.extract_prayer_info(item_text)
+            if prayer_name:
+                self.item["prayer_name"] = prayer_name
+            if prayer_title:
+                self.item["prayer_title"] = prayer_title
 
     def __init__(self, parent):
         self.item = {"kind": "Unknown", "speaker": "Unknown", "text": None, "turn": -1}

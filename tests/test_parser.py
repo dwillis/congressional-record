@@ -162,7 +162,6 @@ class testConstitutionalAuthority(unittest.TestCase):
         self.assertNotIn("constitutional_authority_section", ca_items[3])
         self.assertNotIn("constitutional_authority_clause", ca_items[3])
 
-
 class testCommitteeElection(unittest.TestCase):
     def setUp(self):
         input_string = "tests/test_files/CREC-2005-07-20"
@@ -209,7 +208,6 @@ class testCommitteeElection(unittest.TestCase):
         self.assertIn("Mr. CRENSHAW of Florida", committees[2]["members"])
         self.assertIn("Mr. CARTER of Texas", committees[2]["members"])
         self.assertIn("Mr. COLE of Oklahoma", committees[2]["members"])
-
 
 class testCommitteeResignation(unittest.TestCase):
     def setUp(self):
