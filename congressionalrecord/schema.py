@@ -76,7 +76,7 @@ class ContentItem(BaseModel):
         description=(
             "Type of content item: 'speech', 'recorder', 'clerk', 'linebreak', "
             "'excerpt', 'rollcall', 'metacharacters', 'empty_line', 'title', "
-            "'constitutional_authority', or 'Unknown'"
+            "'constitutional_authority', 'prayer', or 'Unknown'"
         ),
     )
     speaker: str = Field(
@@ -112,6 +112,14 @@ class ContentItem(BaseModel):
     constitutional_authority_clause: Optional[str] = Field(
         None,
         description="Clause of the Constitution cited (e.g., '3', '1 and 18') for constitutional authority statements",
+    )
+    prayer_name: Optional[str] = Field(
+        None,
+        description="Name of the person who offered the prayer (e.g., 'Dr. Barry C. Black', 'Reverend Dr. Kenneth L. Samuel')",
+    )
+    prayer_title: Optional[str] = Field(
+        None,
+        description="Title/position of the person who offered the prayer (e.g., 'The Chaplain', 'Pastor, Victory Baptist Church, Stone Mountain, GA')",
     )
 
 
